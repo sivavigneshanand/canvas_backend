@@ -9,6 +9,10 @@ const wss = new WebSocket.Server({ server });
 let clients = [];
 let drawingData = [];
 
+app.get('/healthCheck',(req,res)=>{
+  res.send('I am alive')
+})
+
 wss.on("connection", (ws) => {
   clients.push(ws);
   console.log("New client connected.");
